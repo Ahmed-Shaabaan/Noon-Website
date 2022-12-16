@@ -1,0 +1,238 @@
+<div class="container-fluid py-4 px-5 overflow-hidden" *ngIf="product">
+  <div class="row g-3">
+    <div class="col-md-6 col-lg-4">
+      <div class="item d-flex gap-3">
+        <div class="images-icon flex-shrink-0 d-flex flex-column gap-2" *ngIf="product.productImages.length > 2">
+          <img src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.productImages[0]}}" alt="icon photo"
+            class="img-thumbnail" />
+          <img src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.productImages[1]}}" alt="icon photo"
+            class="img-thumbnail" />
+          <img src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.productImages[2]}}" alt="icon photo"
+            class="img-thumbnail" />
+
+        </div>
+        <div class="images-icon flex-shrink-0 d-flex flex-column gap-2" *ngIf="product.productImages.length == 1">
+          <img src="/assets/images/no-product-image.png" alt="icon photo" class="img-thumbnail" />
+          <img src="/assets/images/no-product-image.png" alt="icon photo" class="img-thumbnail" />
+          <img src="/assets/images/no-product-image.png" alt="icon photo" class="img-thumbnail" />
+          <img src="/assets/images/no-product-image.png" alt="icon photo" class="img-thumbnail" />
+        </div>
+        <div class="image">
+          <img src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.productImages[0]}}" alt="photo product"
+            class="w-100" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-5">
+      <div *ngIf="product.rating!null" class="best-seller">
+        {{"Best Seller" | translate}}
+      </div>
+
+      <h6 class="text-muted my-2">{{product.brand}}</h6>
+      <h4 class="text-dark">{{product.name}}</h4>
+      <p class="text-dark">{{product.description}}</p>
+
+
+      <div class="d-flex gap-3">
+        <span href="" class="m-0">{{"Ratings" | translate}}</span>
+        <span class="vr"></span>
+        <span class="badge  d-flex align-items-center">
+          <p-rating [ngModel]="productRate.rating" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+        </span>
+
+      </div>
+      <p>
+        {{"Was:" | translate}}
+        <span [ngClass]="{'text-decoration-line-through ':product.newPrice > 0,'fw-bold fs-3':product.newPrice == 0}">
+          {{"EGP" | translate}} {{product.unitPrice}} </span>
+      </p>
+      <p *ngIf="product.newPrice > 0">
+        {{"Now:" | translate}}
+        <span class="fw-bold fs-3" *ngIf="product.newPrice != null">{{product.newPrice}} {{"EGP" | translate}} </span>
+        <span class="text-muted"> {{"Inclusive of VAT" | translate}}</span>
+      </p>
+      <p *ngIf="product.newPrice > 0">
+        {{"Saving:" | translate}}
+        <span *ngIf="product.newPrice != null">{{"EGP" | translate}}{{product.discount}}</span>
+        <span class="text-success badge bg-green1 m-3"> {{product.sail}} % {{"OFF" | translate}}</span>
+      </p>
+
+      <img src="./assets/images/en_pdp-01.png" alt="photo none" class="img-fluid" />
+      <div class="details bg-light p-3 my-3">
+        <h6>{{"Order in 23 hrs 10 mins" | translate}}</h6>
+        <div class="d-flex justify-content-between">
+          <p class="fw-semibold">
+            {{"Free delivery" | translate}} <span class="fw-normal">{{"by" | translate}}</span><span
+              class="text-decoration-underline">
+              {{"Mon, Jul 18" | translate}}</span>
+          </p>
+          <div class="imag-details">
+            <img src="./assets/images/fulfilment_express_v2-en.svg" class="img-fluid" alt="express photo" />
+            <img src="./assets/images/help.svg" class="img-fluid" alt="help photo" />
+          </div>
+        </div>
+        <div class="d-flex align-items-start bg-white p-2">
+          <img src="./assets/images/same_day_delivery.svg" class="img-fluid me-2" alt="icon" />
+          <p>
+
+            {{"Want it Tomorrow? Select Get It Tomorrow on checkout within the next 8 hrs and 10 mins." | translate}}
+          </p>
+        </div>
+      </div>
+
+      <!-- Cart Part -->
+      <div>
+        <h4 class="my-3">{{"Quantity" | translate}}</h4>
+        <div class="hstack gap-3">
+          <button type="button" (click)="minus()"><i class="fa fa-minus"></i></button>
+          <input type="text" [(ngModel)]="quantity">
+          <button type="button" (click)="plus()"><i class="fa fa-plus"></i></button>
+
+
+          <div class="col-8">
+            <button id="addToCart" class="btn badge ms-3 w-70 h-100" (click)="addToCart()">
+              {{"Add To Cart" | translate}}
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <!-- end -->
+
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <ul class="list-group list-group-flush border-start">
+        <li class="list-group-item d-flex align-items-start">
+          <img src="./assets/images/non_returnable.svg" class="img-fluid" alt="" />
+          <span>{{"This item cannot be exchanged or returned" | translate}}</span>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex align-items-center">
+            <img src="./assets/images/seller.svg" class="img-fluid icon-details" alt="" />
+            <div class="details-item">
+
+
+              <p class="m-0">{{"Sold by" | translate}} <a href="">{{"noon" | translate}}</a></p>
+              <p class="m-0">
+                <span class="badge bg-green ">{{product.rating}} <i class="fa-solid fa-star fa-sm"></i></span>
+                {{"positive" | translate}}
+              </p>
+            </div>
+          </div>
+          <p class="text-muted my-3">{{"100% authenticity guaranteed by noon" | translate}} </p>
+
+        </li>
+        <li class="list-group-item d-flex align-items-center gap-2 badge-img text-center">
+          <div class="item">
+            <img src="./assets/images/badge_great_recent_rating.png" class="img-fluid" alt="">
+            <p class="small">{{"Low Return Seller" | translate}} </p>
+          </div>
+          <div class="item">
+            <img src="./assets/images/badge_low_returns_seller.png" class="img-fluid" alt="">
+            <p class="small">{{"Great Recent Rating" | translate}} </p>
+          </div>
+          <hr class="vr">
+          <div class="item">
+            <h6 class="text-success fw-bold">84%</h6>
+            <p class="small">{{"Product as Described" | translate}} </p>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="item d-flex align-items-start">
+            <img src="./assets/images/trusted_shipping_usp_v2.svg" class="img-fluid" alt="">
+            <div class="det">
+              <h6 class="text-muted">{{"TRUSTED SHIPPING" | translate}}
+              </h6>
+              <p class="text-muted small">{{"Free shipping when you spend EGP 200 and above on express items" |
+                translate}} </p>
+            </div>
+          </div>
+          <div class="item d-flex align-items-start">
+
+            <img src="./assets/images/secure_usp.svg" class="img-fluid" alt="">
+            <div class="det">
+              <h6 class="text-muted">
+                {{"SECURE SHOPPING" | translate}}
+              </h6>
+              <p class="text-muted small">{{"Your data is always protected" | translate}}
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <div class="review_box">
+        <ng-container *ngIf="currentUser$|async as user ">
+          <h4>{{"Add a Review"|translate}}</h4>
+
+          <p class="d-inline">Your Rating: </p>
+          <ul class="list-inline d-inline">
+            <li class="list-inline-item">
+              <a *ngFor="let item of ratingList; let i=index " (click)="setStar(i)">
+                <i *ngIf="item" class="fa fa-star-o"></i>
+                <i *ngIf="!item" class="fa fa-star" style="color:rgb(56, 102, 223)"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="d-inline"> Outstanding</p>
+          <div class=" mt-1 row ">
+            <div class="col-md-12">
+              <div class="form-group">
+                <textarea [(ngModel)]="reviewBody" class="form-control ms-3 w-10 h-15" name="message" rows="1" cols="5"
+                  placeholder="Review"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 text-right">
+              <button (click)="submitReview()" type="submit" value="submit"
+                class="btn badge ms-3 w-10 h-15" id="addToCart">
+                Submit Now
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!currentUser$ ">
+          {{"Please Login To Add Your Review"|translate}}
+        </ng-container>
+
+      </div>
+    </div>
+    <div *ngIf="productRate">
+      <div class="mainReviewArea" *ngFor="let item of this.productRate.reviews">
+        <div class="noonReviewHeader" style="width: 100%;display: block;">
+        </div>
+        <div class="sc-e642cbe7-0 bwREVj">
+          <div class="noonReviewItem">
+            <div class="reviewTitle">
+              <div class="reviewProfileIcon">{{item.customerName.charAt(0)}}</div>
+              <div class="userDetailis">
+                <div class="mainDetails">
+                  <div class="userName">{{item.customerName}}</div>
+                  <div class="ratingCover">
+                    <div class="sc-ff35799-0 cLOCNX" >
+                      <button type="button" class="sc-ff35799-2 fLlOAH"><img alt="starFilledV2"
+                          class="sc-b960f1b9-0 dAgqIs" color="ratingDarkGreen" height="12"
+                          src="https://z.nooncdn.com/s/app/com/noon/design-system/simpleicons/star-filled-v2.svg"
+                          width="12" *ngFor="let n of numSequence(item.numberOfStart);
+                          let i = index;"> </button>
+
+                    </div>
+                  </div>
+                  <div class="ratedDate">{{item.date|date}}</div>
+
+                </div>
+                <div class="verifiedPurchaseCover"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="verifiedPurchase">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M5.07262 9.64218L2.67767 7.24723L3.52189 6.403L5.07262 7.94775L9.0183 4.00206L9.86252 4.85227L5.07262 9.64218ZM6.2701 0.661133C2.96506 0.661133 0.282715 3.34348 0.282715 6.64851C0.282715 9.95355 2.96506 12.6359 6.2701 12.6359C9.57513 12.6359 12.2575 9.95355 12.2575 6.64851C12.2575 3.34348 9.57513 0.661133 6.2701 0.661133Z"
+                      fill="#3866DF"></path>
+                  </svg>{{"Verified Purchase"|translate}}</div>
+              </div>
+            </div>
+            <div class="sc-e642cbe7-1 hMgSsl">{{item.comment}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

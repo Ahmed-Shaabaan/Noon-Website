@@ -1,0 +1,244 @@
+<div class="updatePage p-5">
+  <div class="updateSection">
+    <div class="container">
+      <h2 class="pb-5 text-center">Update Your Information</h2>
+      <form
+        [formGroup]="usrFormGroup"
+        (ngSubmit)="updateUser()"
+        class="myform p-3 m-auto"
+        style="width: 75%"
+      >
+      <!-- begin of FirstName -->
+        <div>
+          <label for="FirstName" class="form-label">First Name</label>
+          <input
+          value="{{user.firstName}}"
+            type="text"
+            class="form-control"
+            name="FirstName"
+            id="FirstName"
+            formControlName="FirstName"
+            [class.is-valid]="FirstName?.valid"
+            [class.is-invalid]="FirstName?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="FirstName?.valid || FirstName?.untouched"
+          >
+            <span *ngIf="FirstName?.errors?.['required']"
+              >First Name is required</span
+            >
+            <span *ngIf="FirstName?.errors?.['minlength']">
+              First Name must be at least 3 letters</span
+            >
+          </div>
+        </div>
+      <!-- end of FirstName -->
+        <hr/>
+      <!-- begin of LastName -->
+        <div>
+          <label for="LastName" class="form-label">Last Name</label>
+          <input
+            value="{{user.lastName}}"
+            type="text"
+            class="form-control"
+            name="LastName"
+            id="LastName"
+            formControlName="LastName"
+            [class.is-valid]="LastName?.valid"
+            [class.is-invalid]="LastName?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="LastName?.valid || LastName?.untouched"
+          >
+            <span *ngIf="LastName?.errors?.['required']"
+              >Last Name is required</span
+            >
+            <span *ngIf="LastName?.errors?.['minlength']">
+              Last Name must be at least 3 letters</span
+            >
+          </div>
+        </div>
+      <!-- end of LastName -->
+        <hr />
+      <!-- begin of Email -->
+        <div>
+          <label for="Email" class="form-label">Email</label>
+          <input
+          value="{{user.email}}"
+            type="email"
+            class="form-control"
+            name="Email"
+            id="Email"
+            formControlName="Email"
+            [class.is-valid]="Email?.valid"
+            [class.is-invalid]="Email?.invalid"
+            [pattern]="emailPattern"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="Email?.valid || Email?.untouched"
+          >
+            <span *ngIf="Email?.errors?.['required']">Email is required</span>
+            <span *ngIf="Email?.errors?.['pattern']">
+              Email must ended by @gmail.com</span
+            >
+          </div>
+        </div>
+      <!-- end of Email -->
+ <div>
+          <label for="UserName" class="form-label">User Name</label>
+          <div style="position: relative">
+            <input
+            value="{{user.username}}"
+              class="form-control"
+              name="UserName"
+              id="UserName"
+              formControlName="UserName"
+              [class.is-valid]="UserName?.valid"
+              [class.is-invalid]="UserName?.invalid"
+            />
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="UserName?.valid || UserName?.untouched"
+          >
+            <span *ngIf="UserName?.errors?.['required']"
+              >username is required</span
+            >
+            <span *ngIf="UserName?.errors?.['minlength']">
+              username must be at least 5 letters</span
+            >
+          </div>
+        </div>
+        <!-- bergin of mobile -->
+        <hr />
+        <div>
+          <label for="PhoneNumber" class="form-label">Mobile</label>
+          <input
+          value="{{user.phoneNumber}}"
+            type="text"
+            class="form-control"
+            name="PhoneNumber"
+            id="PhoneNumber"
+            formControlName="PhoneNumber"
+            [class.is-valid]="PhoneNumber?.valid"
+            [class.is-invalid]="PhoneNumber?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="PhoneNumber?.valid || PhoneNumber?.untouched"
+          >
+            <span *ngIf="PhoneNumber?.invalid">You must enter your Mobile</span>
+          </div>
+        </div>
+        <hr />
+        <!-- end of mobile -->
+
+
+        <!-- begin of address -->
+        <!-- <div>
+          <label for="address" class="form-label">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            id="address"
+            formControlName="address"
+            [class.is-valid]="address?.valid"
+            [class.is-invalid]="address?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="address?.valid || address?.untouched"
+          >
+            <span *ngIf="address?.invalid">You must enter your Address</span>
+          </div>
+        </div> -->
+        <!-- end of address -->
+
+        <!-- <hr /> -->
+
+      <!-- begin of Password -->
+        <!-- <div>
+          <label for="Password" class="form-label">Password</label>
+          <div style="position: relative">
+            <input
+            [value]="user.email"
+              [type]="show"
+              class="form-control"
+              name="Password"
+              id="Password"
+              formControlName="Password"
+              [class.is-valid]="Password?.valid"
+              [class.is-invalid]="Password?.invalid"
+            />
+            <i
+              class="iconeye"
+              [class]="eye"
+              (click)="toggle()"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="Password?.valid || Password?.untouched"
+          >
+            <span *ngIf="Password?.errors?.['required']"
+              >password is required</span
+            >
+            <span *ngIf="Password?.errors?.['minlength']">
+              Password must be at least 5 letters</span
+            >
+          </div>
+        </div> -->
+      <!-- end of Password -->
+        <!-- <hr /> -->
+      <!-- begin of ConfirmPassword -->
+        <!-- <div>
+          <label for="ConfirmPassword" class="form-label">Retype Password</label>
+          <div style="position: relative">
+            <input
+              [type]="show"
+              class="form-control"
+              name="ConfirmPassword"
+              id="ConfirmPassword"
+              formControlName="ConfirmPassword"
+              [class.is-valid]="
+              ConfirmPassword?.valid && ConfirmPassword?.value == Password?.value
+              "
+              [class.is-invalid]="ConfirmPassword?.value != Password?.value"
+            />
+            <i
+              class="iconeye"
+              [class]="eye"
+              (click)="toggle()"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="
+              ConfirmPassword?.value == Password?.value || ConfirmPassword?.untouched
+            "
+          >
+            <div *ngIf="ConfirmPassword?.value != Password?.value">
+              Password must be matched
+            </div>
+          </div>
+        </div> -->
+      <!-- end of ConfirmPassword -->
+        <br />
+
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!usrFormGroup.valid"
+        >
+          Update
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

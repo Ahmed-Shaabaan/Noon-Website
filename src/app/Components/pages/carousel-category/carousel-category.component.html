@@ -1,0 +1,125 @@
+<p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="7" [numScroll]="1" [circular]="true"
+  [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+  <ng-template let-product pTemplate="item" class="Cart">
+    <div class="product-item">
+      <div class="product-item-content">
+        <div class="swiper-slide">
+          <div class="sc-gkJlnC cBCSbY">
+            <a class="A" [routerLink]="['/ProductDetails', product.id]">
+              <div class="sc-c8bc5f95-0 lcDafq grid">
+                <div class="sc-9d1cc060-0 imDPWs">
+                  <div class="sc-9d1cc060-1 cIxtkx">
+                    <div class="productImagePLP_Classics Foundation Vector Sweatshirt Boulder Grey ">
+
+                      <div class="sc-ecf0d0ce-0 GYfwz">
+                        <div class="sc-ecf0d0ce-1 jBlWDR">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M14.2113 0.741972C13.3401 0.393483 12.3994 0.219238 11.4583 0.219238C10.901 0.219238 10.3433 0.289037 9.78569 0.393483L7.53809 4.26151C8.46153 3.75635 9.48942 3.51231 10.5525 3.52989C11.197 3.52989 11.8244 3.617 12.4343 3.79125L14.2113 0.741972Z"
+                              fill="#B2B8CA"></path>
+                            <path
+                              d="M0.708008 11.1439C0.708008 16.7197 5.44726 21.0582 10.9706 21.0582C16.7556 21.0582 21.425 16.3885 21.425 10.7085C21.425 7.38056 19.8222 4.4533 17.435 2.50171L15.6925 5.51608C17.2258 6.82292 18.1146 8.73961 18.1146 10.7607C18.1146 14.6288 14.9084 17.7998 10.9706 17.7998C7.03278 17.7998 3.84441 14.6115 3.84441 10.6736C3.84441 10.6736 3.84441 10.6736 3.84441 10.6561C3.84441 10.1858 3.87906 9.71528 3.96618 9.26209L0.708008 11.1439Z"
+                              fill="#B2B8CA"></path>
+                          </svg>
+                        </div>
+                        <div class="lazyload-wrapper ">
+                          <div class="sc-ecf0d0ce-2 dedius">
+                            <img
+                              src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.productImages[0]}}"
+                              alt="Classics Foundation Vector Sweatshirt Boulder Grey " class="sc-b51db3f-1 iCVkuj ">
+                            <div class="sc-ecf0d0ce-3 kHxfks"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sc-9d1cc060-4 jFTHga">
+                        <div class="sc-9d1cc060-5 hJrcMv">
+                          <div class="sc-9d1cc060-6 jDxko"></div>
+                          <div class="sc-9d1cc060-7 giFzNl"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-9d1cc060-18 byvHLn">
+                    <div class="sc-9d1cc060-20 eyNLqb">
+                      <span width="0">
+                        <span>
+                          <span>{{product.name|translate}}</span>
+                          <br><span>
+                            <span>
+
+                            </span>
+                          </span>
+                        </span>
+                        <span style="position: fixed; visibility: hidden; top: 0px; left: 0px;">…</span></span>
+                    </div>
+                    <div class="sc-9d1cc060-21 fHCkrA">
+                      <div class="sc-6073040e-0 ebUFcq" *ngIf="product.newPrice > 0">
+                        <div class="sc-6073040e-1 jscnIS">
+                          <span class="currency">{{"EGP"|translate}} </span>
+                          <strong class="amount">{{product.newPrice}}</strong>
+                        </div>
+
+                        <div class="sc-6073040e-2 iTAgLM">
+                          <span class="oldPrice"> {{product.unitPrice}}</span>
+                          <span class="discount">{{product.sail}}{{"% Off"|translate}}</span>
+                        </div>
+                      </div>
+                      <div class="sc-6073040e-0 ebUFcq" *ngIf="product.newPrice == 0">
+                        <div class="sc-6073040e-1 jscnIS">
+                          <span class="currency">{{"EGP"|translate}} </span>
+                          <strong class="amount">{{product.unitPrice}}</strong>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="Stock">
+                      <span class="Stock"
+                        [ngClass]="{'alert alert-danger':product.quantity < 20 ,'alert alert-success':product.quantity >20 }">
+                        {{"Stock"|translate}} : {{product.quantity}}</span>
+                    </div>
+                    <div class="sc-9d1cc060-22 eQLZPE">
+                      <div class="sc-9d1cc060-23 fovCyo">
+                        <div class="sc-9d1cc060-27 bGqrdY">
+                          <div class="sc-b823bcb8-0 jYIGEK">
+                            <img src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg"
+                              alt="noon-express" class="sc-b51db3f-1 bGljQY" width="80px" height="20px">
+                          </div>
+                        </div>
+                        <div class="sc-9d1cc060-24 kMHCoI">
+                          <div class="sc-61515602-0 czLWQH">
+                            <div color="#F3AC30" class="sc-e568c3b8-0 fgDekm">
+                              <span class="sc-e568c3b8-1 bFgxSY">3.5</span>
+                              <img alt="starFilledV2" class="sc-b960f1b9-0 lkBoAV undefined" color="white" height="18"
+                                src="https://z.nooncdn.com/s/app/com/noon/design-system/simpleicons/star-filled-v2.svg"
+                                width="18">
+                            </div>
+                            <div class="sc-61515602-1 jhgTHA">
+                              <svg width="3" height="10" viewBox="0 0 3 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M2.17635 9.26182C1.46726 7.88727 1.0309 6.63273 1.0309 4.82182C1.0309 3 1.46726 1.75636 2.17635 0.370909L1.67453 0C0.692716 1.35273 0.136353 3.06545 0.136353 4.82182C0.136353 6.57818 0.692716 8.29091 1.67453 9.64364L2.17635 9.26182Z"
+                                  fill="currentColor"></path>
+                              </svg>
+                              <span class="sc-61515602-2 cmvYOR">4</span>
+                              <svg width="3" height="10" viewBox="0 0 3 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(-1);">
+                                <path
+                                  d="M2.17635 9.26182C1.46726 7.88727 1.0309 6.63273 1.0309 4.82182C1.0309 3 1.46726 1.75636 2.17635 0.370909L1.67453 0C0.692716 1.35273 0.136353 3.06545 0.136353 4.82182C0.136353 6.57818 0.692716 8.29091 1.67453 9.64364L2.17635 9.26182Z"
+                                  fill="currentColor"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

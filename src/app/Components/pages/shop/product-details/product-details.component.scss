@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap");
+body {
+   font-family: "Catamaran", sans-serif;
+}
+.images-icon {
+   max-width: 80px;
+}
+.images-icon img {
+   cursor: pointer;
+}
+.icon-top {
+   background-color: #404553;
+   padding: 0 2px 0 20px;
+   color: #feee00;
+}
+.icon-top::after {
+   content: "";
+   position: absolute;
+   border: calc(23px / 2) solid;
+   top: 0;
+   left: 100%;
+   border-color: transparent transparent transparent #404553;
+}
+.bg-green {
+   background-color: #38ae04;
+}
+.bg-green1 {
+   background-color: #37ae0477;
+}
+.select-item {
+   width: 40px;
+}
+.icon-details {
+   width: 50px;
+   border-radius: 50%;
+   border: 1px solid #ccc;
+   padding: 5px;
+   margin-right: 10px;
+}
+.badge-img img{
+   width: 25px;
+}
+
+//========hazem
+#addToCart{
+  margin-top: 20px;
+  width: 250px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(56, 102, 223);
+  border: 1px solid rgb(56, 102, 223);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+ .crop {
+  overflow: hidden;
+}
+ #addToCart:hover{
+   background-color: #fff;
+   color: #2B4CD7;
+   border: 2px solid #2B4CD7;
+ }
+
+
+ .bwREVj .noonReviewItem:first-of-type {
+  border-top: 2px solid rgb(240, 242, 247);
+}
+
+.bwREVj .noonReviewItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(240, 242, 247);
+  padding: 12px 0px;
+  margin: 6px 0px;
+}
+.bwREVj .noonReviewItem .reviewTitle {
+    display: flex;
+    align-items: flex-start;
+    line-height: 14px;
+    margin-bottom: 12px;
+}
+
+.bwREVj .noonReviewItem .reviewTitle .reviewProfileIcon
+{
+  width: 48px;
+    height: 48px;
+    color: rgb(66, 171, 68);
+    background: rgb(226, 246, 226);
+    border-radius: 100%;
+    font-weight: 900;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.bwREVj .noonReviewItem .reviewTitle .userDetailis {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 12px;
+}
+.bwREVj .noonReviewItem .reviewTitle .userDetailis .mainDetails .userName {
+  display: flex;
+  align-items: flex-start;
+  font-weight: 900;
+  font-size: 15px;
+}
+.bwREVj .noonReviewItem .reviewTitle .userDetailis .mainDetails .ratingCover {
+  margin: 6px 0px;
+  display: flex;
+}
+.cLOCNX {
+  display: flex;
+  column-gap: 4px;
+  flex: 0 0 auto;
+}
+.fLlOAH {
+  position: relative;
+}
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+.bwREVj .noonReviewItem .reviewTitle .userDetailis .mainDetails .ratedDate {
+  color: rgb(189, 189, 189);
+}
+
+.bwREVj .noonReviewItem .reviewTitle .userDetailis .verifiedPurchaseCover {
+  border-left: 2px solid rgb(234, 239, 243);
+  margin-left: 12px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.bwREVj .noonReviewItem:first-of-type {
+  border-top: 2px solid rgb(240, 242, 247);
+}
+
+
+.bwREVj .noonReviewItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(240, 242, 247);
+  padding: 12px 0px;
+  margin: 6px 0px;
+}
+/////
+ .mainRate{
+  display: flex;
+  flex-direction: column;
+
+ }
+ .Rate .RateTitle{
+
+    border-top: 2px solid rgb(240, 242, 247);
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid rgb(240, 242, 247);
+    padding: 12px 0px;
+    margin: 6px 0px;
+ }
+
+.bwREVj .noonReviewItem .RateTitle  .UserDetails{
+  display: flex;
+  align-items: flex-start;
+  margin-left: 12px;
+}
+
+.bwREVj  .RateTitle .UserDetails .mainDetails .userName{
+  display: flex;
+  align-items: flex-start;
+  font-weight: 900;
+  font-size: 15px;
+}
+.bwREVj .noonReviewItem .RateTitle .UserDetails .mainDetails  .ratingCover{
+  margin: 6px 0px;
+  display: flex;
+}
+.cLOCNX{
+  display: flex;
+  column-gap: 4px;
+  flex: 0 0 auto;
+}
+.bwREVj .noonReviewItem .RateTitle .UserDetails .mainDetails .ratedDate {
+  color: rgb(189, 189, 189);
+}
+
+.fLlOAH {
+  position: relative;
+}
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+ button {
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+.dAgqIs {
+  filter: invert(45%) sepia(24%) saturate(4053%) hue-rotate(69deg) brightness(102%) contrast(97%);
+}
+.img {
+  max-width: 100%;
+  display: block;
+}
+.bwREVj .noonReviewItem .reviewTitle .userDetailis .verifiedPurchaseCover {
+  border-left: 2px solid rgb(234, 239, 243);
+  margin-left: 12px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+

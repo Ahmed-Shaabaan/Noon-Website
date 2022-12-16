@@ -1,0 +1,163 @@
+<!-- cart empty -->
+<!-- <ng-container>
+  <div class="center text-center">
+    <h3><b>Your cart is empty</b></h3>
+    <p>
+      You have items in your wishlist. To buy items from your wishlist, move
+      them to your cart.
+    </p>
+    <button
+      class="continue"
+      class="btn btn-outline-primary mt-4 mb-4"
+      routerLink="/Home"
+    >
+      CONTINUE SHOPPING
+    </button>
+  </div>
+</ng-container> -->
+
+<ng-container >
+  <div class="container-fluid overflow-hidden">
+    <div class="cartdiv">
+      <div class="row">
+        <div class="col-lg-7 col-md-7 mt-4" style="margin-left: 50px">
+          <!-- Cart -->
+          <div id="cart">
+            <div class="cart">
+              <div class="header p-1" id="headercart">
+                <h4>{{"Cart"|translate}}</h4>
+              </div>
+
+              <ng-container >
+                <div *ngFor="let product of ProductsFromCart" >
+                  <div class="row p-3">
+                    <div class="col-lg-2">
+                      <!-- <img [src]="product.productImages" class="img-fluid" /> -->
+                      <img src="http://www.AhmedShaban.somee.com/wwwroot/ProductImages/{{product.product.productImages[0]}}" alt="images" class="img-fluid">
+                    </div>
+
+                    <div class="col-7">
+                      <p>{{product.product.brand }}</p>
+                      <p>{{ product.product.description }}</p>
+                      <p class="mt-4" *ngIf="product.product.newPrice == 0">
+                        <b>{{"Price"|translate}}:</b> {{product.product.unitPrice }} LE</p>
+
+                        <p class="mt-4"  *ngIf="product.product.newPrice >0">
+                          <b>{{"Price"|translate}}:</b> {{product.product.newPrice }} LE</p>
+
+                      <p class="mt-4">
+                        <b>{{"Quantity"|translate}}:</b> {{product.quantity }} {{"items"|translate}}
+                      </p>
+
+                      <p class="mt-4"  *ngIf="product.product.newPrice == 0">
+                        <b>{{"Total"|translate}}:</b> {{product.product.unitPrice *  product.quantity  }} LE
+                      </p>
+                      <p class="mt-4"  *ngIf="product.product.newPrice >0">
+                        <b>{{"Total"|translate}}:</b> {{product.product.newPrice *  product.quantity  }} LE
+                      </p>
+
+                      <p>{{"Sold by"|translate}} <b>{{"noon Brands"|translate}}</b></p>
+                      <div class="details bg-light p-3 my-3">
+                        <h6>{{"Order in 23 hrs 10 mins"|translate}}</h6>
+                        <div class="d-flex justify-content-between">
+                          <p class="fw-semibold">
+                            {{"Free delivery"|translate}} <span class="fw-normal">{{"by"|translate}}</span
+                            ><span class="text-decoration-underline">
+                              {{"Mon, Jul 18"|translate}}</span
+                            >
+                          </p>
+                          <div class="imag-details">
+                            <img
+                              src="./assets/images/fulfilment_express_v2-en.svg"
+                              class="img-fluid"
+                              alt="express photo"
+                            />
+                            <img
+                              src="./assets/images/help.svg"
+                              class="img-fluid"
+                              alt="help photo"
+                            />
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start bg-white p-2">
+                          <img
+                            src="./assets/images/same_day_delivery.svg"
+                            class="img-fluid me-2"
+                            alt="icon"
+                          />
+                          <p>
+                            {{"Select"|translate}}<b>{{" Get it tomorrow"|translate}}</b>{{" on checkout to"|translate}}
+                            <b>{{"get it tomorrow"|translate}}</b>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                      <button
+                        class="btn btn-danger mt-4"
+                        (click)="removeItem(product)"
+                      >
+                        {{"Remove"|translate}}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <!-- Router -->
+          <a routerLink="/Home">
+            <button class="btn btn-outline-primary mt-4 mb-4">
+              {{ "ContinueShopping" |translate}}
+            </button>
+          </a>
+
+          <!-- orderdsammery -->
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4">
+          <div class="rightside p-4">
+            <h5>{{ "OrderSummary" |translate }}</h5>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ 'copon' |translate}}"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  {{ "Applay" |translate}}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <p class="mt-4" >{{ "Total" |translate }}({{ totalQuantity }})</p>
+                <p class="mt-4">{{ "shipping" |translate}}</p>
+              </div>
+              <div class="col-4">
+                <p class="mt-4">{{grandTotal}} LE</p>
+                <p class="mt-4">{{ "Free" |translate }}</p>
+              </div>
+            </div>
+            <hr />
+            <h6 class="mx-auto  text-center" *ngIf="(showPayment$|async) == false">{{"You must log in to check out"|translate}} <a [routerLink]="['/login']" class="text-primary" >Log in ?</a></h6>
+            <div  class="row w-100">
+              <div class="col-12 text-center">
+                <div class="row mt-2 align-items-center">
+                  <div class="col-md-12">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit"routerLink="/Checkout">
+                      {{"Checkout"|translate}}
+                  </button>
+                    <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

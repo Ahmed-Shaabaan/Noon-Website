@@ -1,0 +1,190 @@
+<main>
+    <div class="container ">
+        <!-- Heading -->
+        <h2 class="my-5 h2 text-center">Checkout </h2>
+
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-9 mb-4">
+                <!--Card-->
+                <div class="card">
+                    <!--Card content-->
+                    <form class="card-body" [formGroup]="CheckoutForm" (ngSubmit)="ShowPayment()">
+                        <!--Grid row-->
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-md-6 mb-2">
+                                <!--firstName-->
+                                <div class="md-form">
+                                    <label for="FirstName" class="">First name</label>
+                                    <input type="text" id="firstName" class="form-control" formControlName="FirstName"
+                                        [class.is-valid]="FirstName?.valid" [class.is-invalid]="FirstName?.invalid" />
+                                    <small *ngIf="FirstName?.errors?.['required']">Name is Required</small>
+                                    <small *ngIf="FirstName?.errors?.['minlength']">Name must be 3 letters at
+                                        least</small>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6 mb-2">
+                                <!--lastName-->
+                                <div class="md-form">
+                                    <label for="LastName" class="">Last name</label>
+                                    <input type="text" id="lastName" class="form-control" formControlName="LastName"
+                                        [class.is-valid]="LastName?.valid" [class.is-invalid]="LastName?.invalid" />
+                                        <small *ngIf="LastName?.errors?.['required']">Last Name is Required</small>
+                                        <small *ngIf="LastName?.errors?.['minlength']">Last Name must be 5 letters at
+                                            least</small>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="md-form ">
+                                <label for="Username" class="">User name</label>
+                                <input type="text" class="form-control " placeholder="Username"
+                                    formControlName="Username" [class.is-valid]="Username?.valid"
+                                    [class.is-invalid]="Username?.invalid" aria-describedby="basic-addon1" />
+
+
+                                <label for="Mobile" class="">Mobile</label>
+                                <input type="tel" id="Mobile" class="form-control" placeholder="mobile"
+                                    formControlName="Mobile" [class.is-valid]="Mobile?.valid"
+                                    [class.is-invalid]="Mobile?.invalid" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="md-form mb-5 mg-3">
+                            <label for="Email" class="">Email (optional)</label>
+                            <input type="text" id="email" class="form-control" placeholder="youremail@example.com"
+                                formControlName="Email" aria-describedby="basic-addon1" />
+                        </div>
+                        <div class="md-form mb-3">
+                            <input type="text" id="Street" class="form-control" placeholder="1234 Main St"
+                                formControlName="Street" [class.is-valid]="Street?.valid"
+                                [class.is-invalid]="Street?.invalid" aria-describedby="basic-addon1" />
+                            <label for="Street" class="">Street</label>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-6 mb-2">
+                                <div class="md-form">
+                                    <label for="state">ZIP : </label>
+                                    <input type="text" class="form-control py-0" placeholder="Zip"
+                                        aria-describedby="basic-addon1" width="20%" placeholder="Select a City"
+                                        formControlName="Zip" [class.is-valid]="Zip?.valid"
+                                        [class.is-invalid]="Zip?.invalid" />
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="Drop">
+                                    <label for="state">governorate : </label>
+                                    <p-dropdown [options]="governorate" optionLabel="governorate_name_en"
+                                        optionValue="governorate_name_en" [filter]="true" filterBy="governorate_name_en"
+                                        [showClear]="true" placeholder="Select a Country" formControlName="governorate"
+                                        [class.is-valid]="governorate?.valid" [class.is-invalid]="governorate?.invalid">
+                                    </p-dropdown>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid governorate.
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="Drop">
+                                    <label for="state">City : </label>
+                                    <p-dropdown [options]="city" optionLabel="city_name_en" [filter]="true"
+                                        filterBy="city_name_en" [showClear]="true" placeholder="Select a City"
+                                        optionValue="city_name_en" formControlName="City" [class.is-valid]="City?.valid"
+                                        [class.is-invalid]="City?.invalid">
+                                    </p-dropdown>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <hr class="mb-4" />
+                            <button class="btn btn-primary btn-lg btn-block" [disabled]="CheckoutForm.invalid" type="submit" *ngIf="Confirm">
+                                Confirm
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="payment" *ngIf="Showpayment">
+                        Payment
+                        <div class="field-radiobutton">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault1" (change)="CashPayment()">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Cash
+                            </label>
+                        </div>
+                        <div class="field-radiobutton">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault2" (change)="PayPalPayment()">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                PayPal
+                            </label>
+                        </div>
+
+
+                        <div class="d-block my-3" *ngIf="!CashPayMent">
+                            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                        </div>
+                        <div class="d-block my-3" *ngIf="CashPayMent">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="CheckoutSubmitaion()" >
+                            Checkout
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-3 mb-4">
+                <!-- Heading -->
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+
+                <!-- Cart -->
+                <ul class="list-group mb-3 z-depth-1">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed"
+                        *ngFor="let product of ProductsFromCart">
+                        <div>
+                            <h6 class="my-0">{{ product.product.name }}</h6>
+                            <small class="text-muted">Quantity: {{ product.quantity }}</small>
+                        </div>
+                        <span class="text-muted" *ngIf="product.product.newPrice == 0">${{ product.product.unitPrice *
+                            product.quantity }}</span>
+                        <span class="text-muted" *ngIf="product.product.newPrice > 0">${{ product.product.newPrice *
+                            product.quantity }}</span>
+                    </li>
+                </ul>
+                <!-- Cart -->
+
+                <!-- Promo code -->
+                <form class="card p-2">
+                    <div class="input-group">
+                        <div>Total Price : {{ this.grandTotal }}</div>
+                    </div>
+                </form>
+                <!-- Promo code -->
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+</main>
