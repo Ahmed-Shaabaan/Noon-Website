@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -22,7 +23,7 @@ export class OrderService {
     // let token = localStorage.getItem('token');
     let headers = new HttpHeaders({'Content-Type': 'application/json'});
      headers = headers.set('Authorization', `Bearer ${token}`)
-    return this.httpclinet.post<OrderMassege>(`https://localhost:7289/api/Order/Create_Order`,JSON.stringify(order),{headers})
+    return this.httpclinet.post<OrderMassege>(`${environment.URl}/Order/Create_Order`,JSON.stringify(order),{headers})
   }
 
   getOrders(id: any): Observable<Order>
@@ -30,6 +31,6 @@ export class OrderService {
     let token = localStorage.getItem('token');
     let headers = new HttpHeaders();
      headers = headers.set('Authorization', `Bearer ${token}`)
-      return this.httpclinet.get<Order>(`https://localhost:7289/api/Order/get_order?id_user=${id}`,{ headers })
+      return this.httpclinet.get<Order>(`${environment.URl}/Order/get_order?id_user=${id}`,{ headers })
   }
 }

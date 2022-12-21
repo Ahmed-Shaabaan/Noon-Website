@@ -51,7 +51,7 @@ export class UserService
 
   add_SignIn(new_prd:any):Observable<IUser>{
     return this.httpclinet.
-    post<IUser>(`https://localhost:7289/api/Customer/SignIn`,JSON.stringify(new_prd),this.http_options)
+    post<IUser>(`${environment.URl}/api/Customer/SignIn`,JSON.stringify(new_prd),this.http_options)
     .pipe(
       map((user:IUser) =>  {
         if (user.success){
@@ -87,12 +87,12 @@ export class UserService
     localStorage.setItem("authChangeSub", "false");
     this.authChangeSub.next(false)
     // this.sendAuthStateChangeNotification(false);
-    return this.httpclinet.get('https://localhost:7289/api/Customer/SignOut',{ headers })
+    return this.httpclinet.get(`${environment.URl}/Customer/SignOut`,{ headers })
   }
 
   updateUser(usr: any): Observable<boolean> {
     // console.log(usr);
-    return this.httpclinet.post<boolean>(`https://localhost:7289/api/Customer/UpdateCustomer?id=${usr.userId}`, JSON.stringify(usr),this.http_options);
+    return this.httpclinet.post<boolean>(`${environment.URl}/Customer/UpdateCustomer?id=${usr.userId}`, JSON.stringify(usr),this.http_options);
   }
 
   get isUserLogged():boolean {
@@ -110,7 +110,7 @@ export class UserService
 
     // console.log(token)
     // console.log(headers)
-    return this.httpclinet.get<IUser>('https://localhost:7289/api/Customer/GetCurrantUser',{ headers }).pipe(
+    return this.httpclinet.get<IUser>(`${environment.URl}/Customer/GetCurrantUser`,{ headers }).pipe(
       map((user) => {
         if (user) {
           this.currentUserSource.next(user["model"]);
@@ -124,7 +124,7 @@ export class UserService
     let token = localStorage.getItem('token');
     let headers = new HttpHeaders();
      headers = headers.set('Authorization', `Bearer ${token}`)
-    return this.httpclinet.get<IUser>(`https://localhost:7289/api/Customer/getuserByusername?username=${username}`,{ headers });
+    return this.httpclinet.get<IUser>(`${environment.URl}/Customer/getuserByusername?username=${username}`,{ headers });
   }
 
 
@@ -137,6 +137,6 @@ export class UserService
 
     let headers = new HttpHeaders();
      headers = headers.set('Authorization', `Bearer ${token}`)
-    return this.httpclinet.post<IChangePassword>(`https://localhost:7289/api/Customer/ChangePassword?id=${id}`, data,{ headers});
+    return this.httpclinet.post<IChangePassword>(`${environment.URl}/Customer/ChangePassword?id=${id}`, data,{ headers});
   }
 }
