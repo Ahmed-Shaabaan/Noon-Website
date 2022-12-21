@@ -14,7 +14,8 @@ export const environment = {
   //   appId: "1:884703040907:web:5f4f64f2de4b1f44ba4b8e",
   //   measurementId: "G-ECSF5CVY6B"
   // },
-  paypalId:'AXSR_eW8BvS1Kbt_1j3N80koLxGlKPU73eOBPF-wVSXJ6uju87S_uF3LAo8F711TGArOrXr-Ty3eSEm0'
+  paypalId: 'AXSR_eW8BvS1Kbt_1j3N80koLxGlKPU73eOBPF-wVSXJ6uju87S_uF3LAo8F711TGArOrXr-Ty3eSEm0'
+
 
 
 };
