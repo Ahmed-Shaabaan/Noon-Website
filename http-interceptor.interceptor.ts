@@ -34,7 +34,7 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
 
     const isLoggedIn = this.identityService.authenticate();
 
-    const isApiUrl = request.url.startsWith(environment.baseUrl);
+    const isApiUrl = request.url.startsWith(environment.URl);
 
     if (isLoggedIn) {
       request = request.clone({
