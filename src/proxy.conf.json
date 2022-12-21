@@ -1,6 +1,6 @@
 {
     "/*": {
-        "target": "http://AhmedShaaban.somee.com/api",
+        "target": "https://localhost:7289",
         "secure": false
 
     }

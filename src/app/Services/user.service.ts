@@ -51,7 +51,7 @@ export class UserService
 
   add_SignIn(new_prd:any):Observable<IUser>{
     return this.httpclinet.
-    post<IUser>(`${environment.URl}/api/Customer/SignIn`,JSON.stringify(new_prd),this.http_options)
+    post<IUser>(`${environment.URl}/Customer/SignIn`,JSON.stringify(new_prd),this.http_options)
     .pipe(
       map((user:IUser) =>  {
         if (user.success){
